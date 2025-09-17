@@ -1,0 +1,18 @@
+Library
+Logs
+Temp
+UserSettings
+obj
+*.sln
+*.csproj
+.vsconfig
+UpgradeLog.htm
+.vs
+Build
+Builds
+.utmp
+Build Profiles
+Build Profiles.meta
+ProjectSettings/*.asset
+packages-lock.json
+Assets/TutorialInfo
