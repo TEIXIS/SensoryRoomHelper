@@ -31,6 +31,11 @@ public class Client : MonoBehaviour
         CloseConnection();
     }
 
+    public bool Connected() 
+    {
+        return connected;
+    }
+
     void ConnectToServer()
     {
         try 
@@ -52,7 +57,7 @@ public class Client : MonoBehaviour
         }
     }
 
-    void SendMessageToServer(string msg) 
+    public void SendMessageToServer(string msg) 
     {
         try 
         {
