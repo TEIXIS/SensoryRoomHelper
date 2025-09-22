@@ -6,17 +6,24 @@ using System.Text;
 
 public class Client : MonoBehaviour
 {
-    public string serverIP = "127.0.0.1";
     public int serverPort = 5000;
+
+    public LANDiscovery lanDiscovery;
 
     private TcpClient tcpClient;
     private NetworkStream stream;
     private byte[] buffer = new byte[1024];
+    private string serverIP;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private bool connected = false;
+
+    private void Update()
     {
-        ConnectToServer();    
+        if (!connected && lanDiscovery.DiscoveredServer()) 
+        {
+            serverIP = lanDiscovery.discoveredIP;
+            ConnectToServer();
+        }
     }
 
     private void OnApplicationQuit()
@@ -36,6 +43,8 @@ public class Client : MonoBehaviour
             SendMessageToServer("Hello, server!");
 
             ReceiveMessageFromServer();
+
+            connected = true;
         }
         catch (Exception e)
         {
@@ -81,6 +90,7 @@ public class Client : MonoBehaviour
         {
             stream.Close();
             tcpClient.Close();
+            connected = false;
             Debug.Log("Connection closed");
         }
         catch (Exception e) 

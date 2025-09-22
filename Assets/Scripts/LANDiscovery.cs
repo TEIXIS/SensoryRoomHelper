@@ -25,6 +25,18 @@ public class LANDiscovery : MonoBehaviour
     private bool listening;
     private bool broadcasting;
 
+    private bool discovered = false;
+    public string discoveredIP = "";
+    public string discoveredName = "";
+
+    public bool DiscoveredServer() 
+    {
+        if (side == Side.Server)
+            return false;
+
+        return discovered;
+    }
+
     private void Start()
     {
         if (side == Side.Client)
@@ -129,12 +141,22 @@ public class LANDiscovery : MonoBehaviour
                     string address = parts[1];
 
                     Debug.Log("Discovered " + name + " as " + address);
+                    discovered = true;
+                    discoveredName = name;
+                    discoveredIP = address;
+
+                    StopListening();
+                    return;
                 }
             }
         }
+        catch (System.Threading.ThreadAbortException e) 
+        {
+            
+        }
         catch (Exception e)
         {
-            Debug.LogError("Failed to listen to LAN broadcast: " + e.Message);
+            Debug.LogError("Failed to listen to LAN broadcast: " + e.Message + " (" + e.GetType() + ")");
         }
     }
 
