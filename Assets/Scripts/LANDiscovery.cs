@@ -25,9 +25,18 @@ public class LANDiscovery : MonoBehaviour
     private bool listening;
     private bool broadcasting;
 
-    private bool discovered = false;
+    private volatile bool discovered = false;
     public string discoveredIP = "";
     public string discoveredName = "";
+
+    public void ResetState() 
+    {
+        discovered = false;
+        if (side == Side.Client)
+            StartListening();
+        else
+            StartBroadcast();
+    }
 
     public bool DiscoveredServer() 
     {
@@ -39,10 +48,7 @@ public class LANDiscovery : MonoBehaviour
 
     private void Start()
     {
-        if (side == Side.Client)
-            StartListening();
-        else
-            StartBroadcast();
+        ResetState();
     }
 
     private void OnApplicationQuit()

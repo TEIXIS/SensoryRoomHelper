@@ -15,7 +15,7 @@ public class Client : MonoBehaviour
     private byte[] buffer = new byte[1024];
     private string serverIP;
 
-    private bool connected = false;
+    private volatile bool connected = false;
 
     private void Update()
     {
@@ -59,15 +59,23 @@ public class Client : MonoBehaviour
 
     public void SendMessageToServer(string msg) 
     {
-        try 
+        try
         {
             byte[] msgBytes = Encoding.ASCII.GetBytes(msg);
             stream.Write(msgBytes, 0, msgBytes.Length);
             Debug.Log("Sent message to server: " + msg);
         }
+        catch (System.IO.IOException)
+        {
+            Debug.Log("Connection closed by the server.");
+            CloseConnection();
+            lanDiscovery.ResetState();
+        }
         catch (Exception e)
         {
             Debug.LogError("Error sending message to server: " + e.Message);
+            CloseConnection();
+            lanDiscovery.ResetState();
         }
     }
 
