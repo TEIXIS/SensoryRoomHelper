@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChangeCube : MonoBehaviour
 {
     public Button button;
-    public Client client;
+    public Connection connection;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,9 +22,9 @@ public class ChangeCube : MonoBehaviour
 
     private void SendMessage() 
     {
-        if (client.Connected()) 
+        if (connection.connected) 
         {
-            client.SendMessageToServer("changecolor");
+            connection.Send("changecolor");
         }
         else 
         {
