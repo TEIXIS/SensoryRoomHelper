@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 107923656}
   - component: {fileID: 107923657}
-  - component: {fileID: 107923658}
   - component: {fileID: 107923660}
   - component: {fileID: 107923659}
   m_Layer: 0
@@ -172,20 +171,6 @@ MonoBehaviour:
   side: 1
   discoveredIP: 
   discoveredName: 
---- !u!114 &107923658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107923654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f130b801fdf5a4488657aaf77172988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 137834207}
-  connection: {fileID: 107923659}
 --- !u!114 &107923659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +186,6 @@ MonoBehaviour:
   serverPort: 5000
   side: 1
   lanDiscovery: {fileID: 107923657}
-  state: {fileID: 107923660}
   connected: 0
 --- !u!114 &107923660
 MonoBehaviour:
@@ -215,9 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367e1e64cd212754ab2290120b7877a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 0}
-  materialA: {fileID: 0}
-  materialB: {fileID: 0}
+  connection: {fileID: 107923659}
+  button1: {fileID: 137834207}
 --- !u!1 &137834205
 GameObject:
   m_ObjectHideFlags: 0
