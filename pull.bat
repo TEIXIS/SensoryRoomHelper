@@ -1,4 +1,4 @@
 cd Assets\Scripts\SensoryRoomCommon
-git pull
+git pull origin master
 cd ..\..\..
-git pull
+git pull origin master
