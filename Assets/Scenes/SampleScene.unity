@@ -186,7 +186,7 @@ MonoBehaviour:
   side: 1
   debug: 0
   lanDiscovery: {fileID: 107923657}
-  connected: 0
+  connected: 1
 --- !u!114 &107923661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,6 +928,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3774442788634083105, guid: 95f9a6d48644465468b258ecc1cf39d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440655666313191714, guid: 95f9a6d48644465468b258ecc1cf39d6, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
