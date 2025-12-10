@@ -169,7 +169,7 @@ MonoBehaviour:
   broadcastInterval: 1
   serverName: test
   side: 1
-  debug: 0
+  debug: 1
 --- !u!114 &107923659
 MonoBehaviour:
   m_ObjectHideFlags: 0
