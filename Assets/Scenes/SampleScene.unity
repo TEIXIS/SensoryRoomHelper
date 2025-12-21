@@ -180,7 +180,7 @@ MonoBehaviour:
   broadcastInterval: 1
   serverName: test
   side: 1
-  debug: 1
+  debug: 0
 --- !u!114 &107923659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverPort: 5000
   side: 1
-  debug: 0
+  debug: 1
   lanDiscovery: {fileID: 107923657}
   connected: 1
   displayServers: {fileID: 107923661}
